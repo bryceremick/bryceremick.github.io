@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+    	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+		<link rel="stylesheet" type="text/css" href="styles.css">
+    	<script type="text/javascript" src="libraries/jquery-3.1.0.js"></script>
+    	<script src="libraries/jquery.waypoints.min.js"></script>
+    	<script src="libraries/feather.min.js"></script>
+	</head>
+
+<div class="sec1">	
+  <div class="mainDiv">
+    <h1>Johnston Mfg Co.</h1>
+    <h2>Handcrafted cooler pads since 1962</h2>
+    	<div class="buttonWrap">
+    		<a class="aboutButton"><span>About Us</span></a>
+    		<a class="productButton"><span>Explore Products</span></a>
+    		<a class="contactButton"><span>Contact Us</span></a>
+    	</div>
+    	<div class="contactSlider">
+    		<a href="tel:559-638-2737"><i data-feather="phone" class="contactIcon"></i><span class="indent">(559) 638-2737</span></a>
+    		<a href="mailto:johnstonmfg@gmail.com" target="_blank"><i data-feather="mail" class="contactIcon"></i><span class="indent">johnstonmfg@gmail.com</span></a>
+    		<a href="https://maps.google.com/?q=Johnston Manufacturing Co, 19406 E Parlier Ave, Reedley, CA 93654" target="_blank"><i data-feather="map-pin" class="contactIcon"></i><span class="indent">19406 E Parlier Ave, Reedley, CA 93654</span></a>
+    		<a><i data-feather="clock" class="contactIcon"></i><span class="indent"><span class="closedHours">S </span><span class="openHours">M T W T F </span><span class="closedHours">S</span><span class="indentHours">8am-5pm</span></span></a>
+    	</div>
+  </div>
+</div>
+
+<div class="sec2">
+  <h1 class="aboutClass">About Us</h1>
+  <div class="blerb"><h2>Our great-grandfather started this company in 1962 with the idea of using rich, Coloradan Quaking Aspen wood to produce swamp cooler pads and other related products. Since then, we have grown to be a household name in the Valley, supplying our trademark Aspen cooler pads to businesses all over California. With over five decades worth of manufacturing experience, we can confidently guarantee that our product is the best on the market. Every Aspen wood product we make is handcrafted and inspected by highly experienced professionals to ensure maximum quality. We take the time to do things the right way.<br><span class="blerbSpan1">That’s the <span class="blerbSpan2">Johnston</span> way.</span>
+	</h2></div>
+</div>
+
+<div class="sec3">
+	<a href="#"><div class="column"><h2>Aspen</h2></div></a>
+	<a href="product-pages/pads.html"><div class="column" id="midColumn"><h2>Pads</h2></div></a>
+	<a href="product-pages/parts.html"><div class="column"><h2>Parts</h2></div></a>
+</div>
+</html>
+
+
+
+
+
+<script type="text/javascript">
+//feather SVGs
+feather.replace({'height': 30, 'width': 30});
+//Scroll to sec2
+$(".aboutButton").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".sec2").offset().top},
+        'slow');
+      });
+//contact us animation
+var swapped = false;
+$(".contactButton").click(function(){
+
+	if (!swapped){
+        swapped = true;
+        $(".contactSlider").animate({
+         
+          opacity: "1"
+        }, 500, function(){
+        	$(".contactSlider").css("pointer-events", "auto");
+        });
+        
+      }else{
+        swapped = false;
+        $(".contactSlider").animate({
+          
+          opacity: "0"
+        }, 500, function(){
+        	$(".contactSlider").css("pointer-events", "none");
+        });
+        
+      }
+
+	});
+//scroll to sec3
+$(".productButton").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".sec3").offset().top},
+        'slow');
+      });
+//about us fade/animation
+  var move = true;
+  var $aboutFade = $('.sec2');
+  $aboutFade.waypoint(function(){
+
+  if (move == true){
+    aboutUsAnimate();
+    move = false;
+  }
+}, {offset: '50%'});
+function aboutUsAnimate(){
+    $(".aboutClass").animate({
+      top: "-=10%",
+      'opacity': '1'
+    }, 500, function() {
+    });
+  }
+</script>

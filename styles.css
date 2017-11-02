@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
+
+body, html{
+  	margin: 0px;
+  	padding: 0px;
+    -webkit-transform: translate3d(0,0,0);
+}
+.sec1{
+  	position: relative;
+  	width: 100%;
+  	height:100%;
+  	background-image: url("images/landingIMG-min.jpg");
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  	overflow: hidden;
+}
+.sec2{
+  	position: relative;
+  	width: 100%;
+  	height:100%;
+  	background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url("images/workbench1080p.jpg");
+  	background-size: cover;
+  	background-repeat: no-repeat;
+    background-color: white;
+  	overflow: hidden;
+}
+.sec3{
+    position: relative;
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    background-image: url("images/woodshave1080p.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transform: translate3d(0,0,0);
+}
+.sec4{
+    position: relative;
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+}
+/**************************sec1*****************************/
+.mainDiv{
+  	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	width: 100%;
+    display: block;
+}
+.mainDiv h1{
+  	margin: 0;
+  	font-family: 'Yellowtail', cursive;
+  	font-size: 12vh;
+  	color: #C60000;
+  	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  	text-align: center;
+    user-select: none;
+    cursor: default;
+  
+}
+.mainDiv h2{
+  	margin: 0;
+  	font-family: 'Roboto', sans-serif;
+  	font-size: 4vh;
+  	font-weight: 700;
+  	color: #fff;
+  	text-align: center;
+  	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    cursor: default;
+}
+.buttonWrap{
+	margin-top: 7vh;
+  text-align: center;
+  width: 100%;
+}
+.buttonWrap span{
+	font-family: 'Roboto', sans-serif;
+	font-size: 4vh;
+	font-weight: 100;
+ 	color: #fff;
+ 	margin: .5vh;
+}
+.buttonWrap a{
+	border: 3px solid #C60000;
+  width: 35vh;
+	margin: .5vh;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+	background: rgba(0,0,0,0.3);
+	user-select: none;
+  display: inline-block;
+}
+.buttonWrap a:hover{
+	cursor: pointer;
+	border-bottom: 3px solid #fff;
+}
+.buttonWrap a:active{
+	border-bottom: 3px solid #C60000;
+}
+.contactSlider{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(((35vh * 3) + 2vh) + 25px);
+  background-color: #fff;
+  opacity: 0;
+  text-align: center;
+  pointer-events: none;
+}
+.contactSlider a{
+  margin: 1%;
+  display: inline-block;
+}
+.contactSlider a:hover{
+  cursor: pointer;
+}
+.contactSlider .indent{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5vh;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+.openHours{
+  color: #32CD32;
+  font-weight: 700;
+}
+.closedHours{
+  color: #C60000;
+  font-weight: 700;
+}
+.indentHours{
+  margin-left: 20px;
+  font-weight: 700;
+}
+.contactIcon{
+  position: relative;
+  color: #C60000;
+  vertical-align: middle;
+}
+/***************************section 2*****************************/
+.sec2 h1{
+	position: relative;
+	font-family: 'Roboto', sans-serif;
+  font-size: 10vh;
+	font-weight: 700;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-bottom: 0;
+  color: #fff;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  text-decoration: underline;
+  text-decoration-color: #C60000;
+  opacity: 0;
+  user-select: none;
+  cursor: default;
+}
+.blerb{
+  position: relative;
+  margin-left: 10%;//
+  border: 1px solid white;
+  width: 60%;
+}
+.blerb h2{
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-weight: 400;
+  font-size: 3.5vh;//
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.blerbSpan1{
+  font-size: 4.5vh;
+  font-weight: 700;
+}
+.blerbSpan2{
+  font-family: 'Yellowtail', cursive;
+  color: #C60000;
+  font-size: 5vh;//
+  font-weight: 400;
+  text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
+}
+/************************Section 3****************************/
+.sec3 .column{
+  position: relative;
+  height: 100%;
+  width: calc(100% / 3);
+  display: inline-block;
+  float: left;
+  background: rgba(0,0,0,0.3);
+  transition: background .3s;
+  cursor: pointer;
+}
+.sec3 .column:hover{
+  background: rgba(0,0,0,0);
+}
+.sec3 .column:hover h2{
+  text-decoration: underline;
+  text-decoration-color: #C60000;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.sec3 h2{
+  position: relative;
+  top: 50%;
+  margin: 0;
+  transform: translateY(-50%);
+  font-family: 'Roboto', sans-serif;
+  font-size: 8vh;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+/*phone only*/
+@media only screen and (max-width: 599px) {
+  .sec2{
+    background-image: none;
+    background: linear-gradient(to top, #3f4c6b, #606c88); 
+  }
+  .sec3{
+    background-image: none;
+    background: linear-gradient(to top, #3f4c6b, #606c88);
+  }
+  .contactSlider{
+    width: calc(35vh + 6px);
+    text-align: left;
+  }
+  .sec3 .column{
+  	width: 100%;
+  	height: calc(100% / 3);
+    background: rgba(0,0,0,0);
+  }
+  #midColumn{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    } 
+  .sec3 h2{
+  	text-decoration: underline;
+  	text-decoration-color: #C60000;
+  }
+  .sec2 h1{
+      margin-left: 0;
+      margin-top: 20%;
+      text-align: center;
+  	}
+  .blerb{
+    margin: auto;
+    width: 90%;
+  }
+  .blerb h2{
+    font-size: 2.5vh;
+  }
+}
+/*tablet portrait and up*/
+@media only screen and (min-width: 600px) {
+  .contactSlider{
+    width: calc(((35vh * 2) + 1vh) + 19px);
+  }
+  .sec3 .column{
+  	width: 100%;
+  	height: calc(100% / 3);
+  }
+  .sec2 h1{
+      margin-left: 0;
+      margin-top: 20%;
+      text-align: center;
+    }
+}
+/*tablet landscape and up*/
+@media only screen and (min-width: 900px) {
+  .contactSlider{
+    width: calc(((35vh * 2) + 1vh) + 19px);
+  }
+  .sec3 .column{
+  	height: 100%;
+  	width: calc(100% / 3);
+  }
+  .sec2 h1{
+      margin-left: 10%;
+      margin-top: 10%;
+      text-align: initial;
+    }
+}
+/*desktop and up*/
+@media only screen and (min-width: 1200px) {
+  .contactSlider{
+    width: calc(((35vh * 3) + 2vh) + 25px);
+  }
+
+}
+/*big desktop and up*/
+@media only screen and (min-width: 1800px) {
+  .contactSlider{
+    width: calc(((35vh * 3) + 2vh) + 25px);
+  }
+
+}

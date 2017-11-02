@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap.min.css">
+		<script type="text/javascript" src="../libraries/jquery-3.1.0.js"></script>
+		<script type="text/javascript" src="../libraries/bootstrap.min.js"></script>
+	</head>
+
+	<div class="container">
+	<div class="row" id="search">
+		<form id="search-form" action="" method="POST" enctype="multipart/form-data">
+			<div class="form-group col-xs-9"  id="inputWrap">
+				<input class="form-control" type="text" placeholder="ID" id="idSearch"/>
+				<span class="orSpan">or</span>
+				<input class="form-control" type="text" placeholder="Width" id="widthSearch"/>
+				<input class="form-control" type="text" placeholder="Length" id="lengthSearch"/>
+			</div>
+			<div class="form-group col-xs-3">
+				<button type="submit" class="btn btn-block btn-primary" id="sButton">Search</button>
+			</div>
+		</form>
+	</div>
+	<div class="row" id="products">	
+	</div>
+</div>
+
+</html>
+
+
+<!--********************************styles*********************************-->
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+body {
+  	background: linear-gradient(to top, #076585 , #fff);
+  	background-attachment: fixed;
+  	
+}
+.container{
+	margin-top: 10%;
+}
+#search-form{
+	position: relative;
+	display: inline-block;
+	left: 50%;
+	transform: translateX(-50%);	
+}
+#inputWrap{
+	width: auto;
+}
+.form-control{
+	display: inline-block;
+}
+#idSearch{
+	width: 60px;
+}
+#widthSearch{
+	width: 70px;
+}
+#lengthSearch{
+	width: 70px;
+}
+#sButton{
+	width: auto;
+}
+.product {
+	margin-bottom: 30px;
+}
+.product-inner {
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+	padding: 10px;
+	font-family: 'Roboto', sans-serif;
+	background: #fff;
+	border-radius: 5px;
+}
+.product img {
+	margin-bottom: 10px;
+}
+.orSpan{
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	color: #fff;
+	font-weight: 700;
+}
+</style>
+
+
+<!--**********************************Javascript******************************-->
+<script type="text/javascript">
+	data = [
+	{	
+		"id": "145",
+        "width": "12",
+        "length": "20",
+        "dealerPrice": "2.46",
+        "retailPrice": "3.90"
+	},
+	{
+		"id": "146",
+        "width": "14",
+        "length": "22",
+        "dealerPrice": "2.46",
+        "retailPrice": "3.90"
+	},
+	{
+		"id": "147",
+        "width": "19",
+        "length": "25",
+        "dealerPrice": "3.32",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "148",
+        "width": "34",
+        "length": "38",
+        "dealerPrice": "5.50",
+        "retailPrice":"7.90"
+	},
+	{
+		"id": "149",
+        "width": "24",
+        "length": "28",
+        "dealerPrice": "5.15",
+        "retailPrice":"7.59"
+	},
+	{
+		"id": "150",
+        "width": "22",
+        "length": "34",
+        "dealerPrice": "3.60",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "151",
+        "width": "28",
+        "length": "34",
+        "dealerPrice": "3.58",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "152",
+        "width": "22",
+        "length": "22",
+        "dealerPrice": "3.34",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "153",
+        "width": "24",
+        "length": "24",
+        "dealerPrice": "3.56",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "154",
+        "width": "26",
+        "length": "32",
+        "dealerPrice": "3.60",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "155",
+        "width": "16",
+        "length": "35",
+        "dealerPrice": "3.53",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "156",
+        "width": "33",
+        "length": "33",
+        "dealerPrice": "5.01",
+        "retailPrice":"6.60"
+	},
+	{
+		"id": "157",
+        "width": "36",
+        "length": "36",
+        "dealerPrice": "5.50",
+        "retailPrice":"7.90"
+	},
+	{
+		"id": "158",
+        "width": "25",
+        "length": "58",
+        "dealerPrice": "6.90",
+        "retailPrice":"7.92"
+	},
+	{
+		"id": "159",
+        "width": "36",
+        "length": "42",
+        "dealerPrice": "6.50",
+        "retailPrice":"8.17"
+	},
+	{
+		"id": "160",
+        "width": "28",
+        "length": "28",
+        "dealerPrice": "3.58",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "161",
+        "width": "28",
+        "length": "58",
+        "dealerPrice": "8.40",
+        "retailPrice":"9.92"
+	},
+	{
+		"id": "162",
+        "width": "23",
+        "length": "30",
+        "dealerPrice": "3.60",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "163",
+        "width": "18",
+        "length": "20",
+        "dealerPrice": "2.46",
+        "retailPrice":"3.90"
+	},
+	{
+		"id": "164",
+        "width": "19",
+        "length": "48",
+        "dealerPrice": "4.61",
+        "retailPrice":"6.80"
+	},
+	{
+		"id": "165",
+        "width": "39",
+        "length": "46",
+        "dealerPrice": "7.82",
+        "retailPrice":"11.62"
+	},
+	{
+		"id": "166",
+        "width": "28",
+        "length": "32",
+        "dealerPrice": "3.58",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "167",
+        "width": "24",
+        "length": "36",
+        "dealerPrice": "3.60",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "168",
+        "width": "22",
+        "length": "28",
+        "dealerPrice": "3.53",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "169",
+        "width": "21",
+        "length": "50",
+        "dealerPrice": "5.13",
+        "retailPrice":"7.57"
+	},
+	{
+		"id": "170",
+        "width": "18",
+        "length": "28",
+        "dealerPrice": "3.34",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "171",
+        "width": "20",
+        "length": "43",
+        "dealerPrice": "4.61",
+        "retailPrice":"6.80"
+	},
+	{
+		"id": "172",
+        "width": "28",
+        "length": "40",
+        "dealerPrice": "4.72",
+        "retailPrice":"7.15"
+	},
+	{
+		"id": "173",
+        "width": "32",
+        "length": "36",
+        "dealerPrice": "4.99",
+        "retailPrice":"6.58"
+	},
+	{
+		"id": "174",
+        "width": "30",
+        "length": "30",
+        "dealerPrice": "3.60",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "175",
+        "width": "18",
+        "length": "36",
+        "dealerPrice": "3.53",
+        "retailPrice":"5.50"
+	},
+	{
+		"id": "176",
+        "width": "25",
+        "length": "40",
+        "dealerPrice": "4.48",
+        "retailPrice":"7.25"
+	},
+	{
+		"id": "177",
+        "width": "27",
+        "length": "52",
+        "dealerPrice": "6.62",
+        "retailPrice":"7.57"
+	}
+];
+
+var products = "";
+
+for (var i = 0; i < data.length; i++) {
+	var id = data[i].id,
+		width = data[i].width,
+		length = data[i].length,
+		dealerPrice = data[i].dealerPrice,
+		retailPrice = data[i].retailPrice;
+	
+	//create product cards col-sm-12
+	products += "<div class='col-sm-3 product' data-id='"+id+"' data-width='"+width+"' data-length='"+length+"' data-dealerPrice='"+dealerPrice+"' data-retailPrice='"+retailPrice+"'><div class='product-inner text-center'><b>ID</b>: "+id+"<br /><b>Width</b>: "+width+"<br /><b>Length</b>: "+length+"<br /><u>Dealer Price:</u> $"+dealerPrice+"<br /><u>Retail Price:</u> $"+retailPrice+"</div></div>";
+	
+}
+
+$("#products").html(products);
+
+//on search form submit
+$("#search-form").submit(function(e) {
+  e.preventDefault();
+	
+	var decline = 0;
+	var found = 0;
+    var idQuery = $("#idSearch").val();
+	var widthQuery = $("#widthSearch").val();
+	var lengthQuery = $("#lengthSearch").val();
+	//alert("id: " +idQuery + " width: "+ widthQuery + " length: " +lengthQuery);
+	
+	if(widthQuery == "" && lengthQuery =="" && idQuery != ""){
+		//if only id
+		$(".product").hide();
+  		$(".product").each(function() {
+    		var id = $(this).data("id").toString();
+
+    		if (id.indexOf(idQuery) > -1) {
+      			$(this).show();
+				found++;
+    		}else{
+				decline++;
+			}
+  		});
+		if(decline > 0 && found == 0)
+			alert("Sorry! No product found with matching ID.");
+		
+		
+	}else if(widthQuery != "" && lengthQuery !="" && idQuery == ""){
+		//if width and length
+			$(".product").hide();
+  			$(".product").each(function() {
+    			//var id = $(this).data("id").toString(),
+        	var width = $(this).data("width").toString(),
+        		length = $(this).data("length").toString();
+
+    		if (width.indexOf(widthQuery) > -1 && length.indexOf(lengthQuery) > -1) {
+      			$(this).show();
+				found++;
+    		}else{
+				decline++;
+			}
+  		});
+		if(decline > 0 && found == 0)
+			alert("Sorry! No product found with matching width/length.");
+		
+	}else if(idQuery == "" && widthQuery == "" && lengthQuery ==""){
+		//if no input
+		$('.form-control').css('border', 'solid 1px red');
+	}else if(idQuery == "" && widthQuery == "" && lengthQuery !=""){
+		//if only length
+		$(".product").hide();
+  		$(".product").each(function() {
+    		
+        	var length = $(this).data("length").toString();
+
+    		if (length.indexOf(lengthQuery) > -1) {
+      			$(this).show();
+				found++;
+    		}else{
+				decline++;
+			}
+  		});
+		if(decline > 0 && found == 0)
+			alert("Sorry! No product found with matching length.");
+		
+	}else if(idQuery == "" && widthQuery != "" && lengthQuery ==""){
+		//if only width
+		$(".product").hide();
+  		$(".product").each(function() {
+    		
+        	var width = $(this).data("width").toString();
+
+    		if (width.indexOf(widthQuery) > -1) {
+      			$(this).show();
+				found++;
+    		}else{
+				decline++;
+			}
+  		});
+		if(decline > 0 && found == 0)
+			alert("Sorry! No product found with matching width.");
+		
+	}else{
+		alert("Please enter in either the ID or the width/length")
+	}
+	
+	
+	
+});
+
+
+</script>

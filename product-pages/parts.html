@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap.min.css">
+		<script type="text/javascript" src="../libraries/jquery-3.1.0.js"></script>
+		<script type="text/javascript" src="../libraries/bootstrap.min.js"></script>
+	</head>
+
+	<div class="container">
+	<div class="row" id="search">
+		<form id="search-form" action="" method="POST" enctype="multipart/form-data">
+			<div class="form-group col-xs-9">
+				<input class="form-control" type="text" placeholder="Search" />
+			</div>
+			<div class="form-group col-xs-3">
+				<button type="submit" class="btn btn-block btn-primary">Search</button>
+			</div>
+		</form>
+	</div>
+	<div class="row" id="filter">
+		<form>
+			<div class="form-group col-sm-3 col-xs-6">
+				<select data-filter="category" class="filter-category filter form-control">
+					<option value="">Select Category</option>
+					<option value="">Show All</option>
+				</select>
+			</div>
+		</form>
+	</div>
+	<div class="row" id="products">
+		
+	</div>
+</div>
+
+</html>
+<!--*******************************************CSS****************************************-->
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+body {
+	padding-top: 30px;
+}
+.product {
+	margin-bottom: 30px;
+}
+.product-inner {
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+	padding: 10px;
+	border-radius: 5px;
+	font-family: 'Roboto', sans-serif;
+}
+.product img {
+	margin-bottom: 10px;
+}
+</style>
+<!--********************************************Jquery*************************************-->
+<script type="text/javascript">
+	data = [
+	{
+		"category": "Belts",
+		"name": "4L Belts",
+		"description": "a",
+		"price": "0.17 - 0.20",
+		"image": ""
+	},
+	{
+		"category": "Pumps",
+		"name": "120V Pump",
+		"description": "5,500 CFM",
+		"price": "22.99",
+		"image": ""
+	},
+	{
+		"category": "Pumps",
+		"name": "120V Pump",
+		"description": "5,000-7,500 CFM",
+		"price": "26.99",
+		"image": ""
+	},
+	{
+		"category": "Pumps",
+		"name": "120V Pump",
+		"description": "7,500 CFM",
+		"price": "27.50",
+		"image": ""
+	},
+	{
+		"category": "Pumps",
+		"name": "120V Pump",
+		"description": "15,000-21,000 CFM",
+		"price": "36.99",
+		"image": ""
+	},
+	{
+		"category": "Pumps",
+		"name": "120V Pump",
+		"description": "20,000 CFM",
+		"price": "36.99",
+		"image": ""
+	},
+	{
+		"category": "Floats",
+		"name": "White Float",
+		"description": "a",
+		"price": "7.99",
+		"image": ""
+	},
+	{
+		"category": "Floats",
+		"name": "Red Float",
+		"description": "a",
+		"price": "12.84",
+		"image": ""
+	},
+	{
+		"category": "Floats",
+		"name": "Blue Float",
+		"description": "a",
+		"price": "8.59",
+		"image": ""
+	},
+	{
+		"category": "Motor Pulleys",
+		"name": "Variable Motor Pulley",
+		"description": "Cast Iron | 3-1/4in x 1/2in",
+		"price": "10.99",
+		"image": ""
+	},
+	{
+		"category": "Motor Pulleys",
+		"name": "Variable Motor Pulley",
+		"description": "Cast Iron | 3-3/4in x 1/2in",
+		"price": "11.99",
+		"image": ""
+	},
+	{
+		"category": "Motor Pulleys",
+		"name": "Adjustable Motor Pulley",
+		"description": "1 HP | 4in x 5/8in",
+		"price": "14.99",
+		"image": ""
+	},
+	{
+		"category": "Pillow Block Bearings",
+		"name": "Pillow Block Bearing",
+		"description": "3/4 inch",
+		"price": "7.80",
+		"image": ""
+	},
+	{
+		"category": "Pillow Block Bearings",
+		"name": "Pillow Block Bearing",
+		"description": "1 inch",
+		"price": "7.80",
+		"image": ""
+	},
+	{
+		"category": "Pillow Block Bearings",
+		"name": "Pillow Block Bearing",
+		"description": "High Rise | 3/4 inch",
+		"price": "8.80",
+		"image": ""
+	},
+	{
+		"category": "Pillow Block Bearings",
+		"name": "Pillow Block Bearing",
+		"description": "High Rise | 1 inch",
+		"price": "8.80",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "1/3 HP | Single Speed",
+		"price": "74.00",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "1/3 HP | 2 Speed",
+		"price": "82.50",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "1/2 HP | Single Speed",
+		"price": "84.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "1/2 HP | 2 Speed",
+		"price": "106.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "3/4 HP | Single Speed",
+		"price": "94.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "3/4 HP | 2 Speed",
+		"price": "109.50",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "a",
+		"price": "116.00",
+		"image": ""
+	},
+	{
+		"category": "Cooler Motors",
+		"name": "Cooler Motor",
+		"description": "a",
+		"price": "123.05",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "7in x 3/4in",
+		"price": "12.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "7in x 1in",
+		"price": "13.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "8in x 3/4in",
+		"price": "14.98",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "8in x 1in",
+		"price": "14.98",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "9in x 3/4in",
+		"price": "14.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "9in x 1in",
+		"price": "15.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "10in x 3/4in",
+		"price": "16.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "10in x 1in",
+		"price": "17.00",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "11in x 3/4in",
+		"price": "18.50",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "11in x 1in",
+		"price": "18.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "12in x 3/4in",
+		"price": "20.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "20in x 1in",
+		"price": "24.99",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "14in x 3/4in",
+		"price": "26.50",
+		"image": ""
+	},
+	{
+		"category": "Blower Pulleys",
+		"name": "Blower Pulley",
+		"description": "14in x 1in",
+		"price": "28.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Coating",
+		"name": "Submarine Cooler Coating",
+		"description": "1 Quart",
+		"price": "6.50",
+		"image": ""
+	},
+	{
+		"category": "Cooler Coating",
+		"name": "Submarine Cooler Coating",
+		"description": "14oz Aerosol Can",
+		"price": "6.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Coating",
+		"name": "Submarine Cooler Coating",
+		"description": "1 Gallon",
+		"price": "19.50",
+		"image": ""
+	},
+	{
+		"category": "Distributor Kits",
+		"name": "Distributor Kit",
+		"description": "3 way | Side Discharge",
+		"price": "6.99",
+		"image": ""
+	},
+	{
+		"category": "Distributor Kits",
+		"name": "Distributor Kit",
+		"description": "4 way | Side Discharge",
+		"price": "9.99",
+		"image": ""
+	},
+	{
+		"category": "Distributor Kits",
+		"name": "Distributor Kit",
+		"description": "6 way | Side Discharge",
+		"price": "10.99",
+		"image": ""
+	},
+	{
+		"category": "Distributor Kits",
+		"name": "Distributor Kit",
+		"description": "8 way | Down Draft Discharge",
+		"price": "11.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Coarse Coating Brush",
+		"description": "a",
+		"price": "2.15",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Anode Kit",
+		"description": "a",
+		"price": "9.40",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Drain Kit",
+		"description": "a",
+		"price": "1.79",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Poly Mesh Pump Screen",
+		"description": "a",
+		"price": "1.79",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Molded Plastic Pump Screen",
+		"description": "a",
+		"price": "2.00",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Spider Snake",
+		"description": "a",
+		"price": "6.20",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Wonder Air",
+		"description": "a",
+		"price": "2.99",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Zoom Oil",
+		"description": "a",
+		"price": "2.49",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Cooler Cleaner",
+		"description": "a",
+		"price": "6.98",
+		"image": ""
+	},
+	{
+		"category": "Cooler Accessories",
+		"name": "Tan Spray Paint",
+		"description": "a",
+		"price": "7.26",
+		"image": ""
+	},
+
+
+	
+];
+
+var products = "";
+var categories = "";
+
+for (var i = 0; i < data.length; i++) {
+	var category = data[i].category,
+		name = data[i].name,
+		description = data[i].description,
+		price = data[i].price,
+		image = data[i].image;
+	
+	//create product cards
+	products += "<div class='col-sm-4 product' data-category='"+category+"' data-name='"+name+"' data-description='"+description+"' data-price='"+price+"'><div class='product-inner text-center'><img src='"+image+"'><br /><span style='font-size: 20px; font-weight: 700;'>"+name +"</span><br />"+description+"<br /><br/><u>Price:</u> $"+price+"</div></div>";
+	
+	//create dropdown of makes
+	if (categories.indexOf("<option value='"+category+"'>"+category+"</option>") == -1) {
+		categories += "<option value='"+category+"'>"+category+"</option>";
+	}
+}
+
+$("#products").html(products);
+$(".filter-category").append(categories);
+var filtersObject = {};
+
+//on filter change
+$(".filter").on("change",function() {
+	var filterName = $(this).data("filter"),
+		filterVal = $(this).val();
+	
+	if (filterVal == "") {
+		delete filtersObject[filterName];
+	} else {
+		filtersObject[filterName] = filterVal;
+	}
+	
+	var filters = "";
+	
+	for (var key in filtersObject) {
+	  	if (filtersObject.hasOwnProperty(key)) {
+			filters += "[data-"+key+"='"+filtersObject[key]+"']";
+	 	 }
+	}
+	
+	if (filters == "") {
+		$(".product").show();
+	} else {
+		$(".product").hide();
+		$(".product").hide().filter(filters).show();
+	}
+});
+
+//on search form submit
+$("#search-form").submit(function(e) {
+	e.preventDefault();
+	var query = $("#search-form input").val().toLowerCase();
+
+	$(".product").hide();
+	$(".product").each(function() {
+		var category = $(this).data("category").toLowerCase(),
+			name = $(this).data("name").toLowerCase(),
+			description = $(this).data("description").toString();
+
+		if (category.indexOf(query) > -1 || name.indexOf(query) > -1 || description.indexOf(query) > -1) {
+			$(this).show();
+		}
+	});
+});
+</script>
