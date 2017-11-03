@@ -220,6 +220,12 @@ body, html{
 
 /*phone only*/
 @media only screen and (max-width: 599px) {
+  .mainDiv h1{
+    font-size: 14vw;
+  }
+  .mainDiv h2{
+    font-size: 5vw;
+  }
   .sec2{
     background-image: none;
     background-color: #F7F7F7;
