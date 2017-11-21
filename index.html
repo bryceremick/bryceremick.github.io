@@ -1,12 +1,22 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     
 		<link rel="stylesheet" type="text/css" href="styles.css">
-    	<script type="text/javascript" src="libraries/jquery-3.1.0.js"></script>
-    	<script src="libraries/jquery.waypoints.min.js"></script>
-    	<script src="libraries/feather.min.js"></script>
+    	<script
+  				src="https://code.jquery.com/jquery-3.2.1.min.js"
+  				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  				crossorigin="anonymous">
+  		</script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" 
+    			integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" 
+    			crossorigin="anonymous">
+    	</script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.0.1/feather.min.js" 
+    			integrity="sha256-JOHphzcTEzaA1OQ/4qxDgg0ux1YpPFzA1OPzwafrWqs=" 
+    			crossorigin="anonymous">
+    	</script>
 	</head>
 
 <div class="sec1">	
@@ -29,7 +39,7 @@
 
 <div class="sec2">
   <h1 class="aboutClass">About Us</h1>
-  <div class="blerb"><h2>Our great-grandfather started this company in 1962 with the idea of using rich, Coloradan Quaking Aspen wood to produce swamp cooler pads and other related products. Since then, we have grown to be a household name in the Valley, supplying our trademark Aspen cooler pads to businesses all over California. With over five decades worth of manufacturing experience, we can confidently guarantee that our product is the best on the market. Every Aspen wood product we make is handcrafted and inspected by highly experienced professionals to ensure maximum quality. We take the time to do things the right way.<br><span class="blerbSpan1">That’s the <span class="blerbSpan2">Johnston</span> way.</span>
+  <div class="blerb"><h2>Our great-grandfather started this company in 1962 with the idea of using rich, Coloradan Quaking Aspen wood to produce swamp cooler pads and other related products. Since then, we have grown to be a household name in the Valley, supplying our trademark Aspen cooler pads to businesses all over California. With over five decades worth of manufacturing experience, we can confidently guarantee that our product is the best on the market. Every Aspen wood product we make is handcrafted and inspected by highly experienced professionals to ensure maximum quality. We take the time to do things the right way.<br><span class="blerbSpan1">That's the <span class="blerbSpan2">Johnston</span> way.</span>
 	</h2></div>
 </div>
 
@@ -45,8 +55,13 @@
 
 
 <script type="text/javascript">
-//feather SVGs
-feather.replace({'height': 30, 'width': 30});
+
+var windowWidth = $(window).width();
+if (windowWidth >= 0 && windowWidth <= 599){
+	feather.replace({'height': 20, 'width': 20, 'stroke-width': 1.5});
+}else{
+	feather.replace({'height': 30, 'width': 30, 'stroke-width': 1.5});
+}
 //Scroll to sec2
 $(".aboutButton").click(function() {
     $('html,body').animate({
@@ -85,7 +100,8 @@ $(".productButton").click(function() {
         'slow');
       });
 //about us fade/animation
-  var move = true;
+if (windowWidth >= 1200){
+var move = true;
   var $aboutFade = $('.sec2');
   $aboutFade.waypoint(function(){
 
@@ -101,4 +117,9 @@ function aboutUsAnimate(){
     }, 500, function() {
     });
   }
+}else{
+	$(".aboutClass").css("opacity", "1");
+	$(".aboutClass").css("top", "-10%")
+}
+  
 </script>

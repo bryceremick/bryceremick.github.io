@@ -2,10 +2,28 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="../libraries/bootstrap.min.css">
-		<script type="text/javascript" src="../libraries/jquery-3.1.0.js"></script>
-		<script type="text/javascript" src="../libraries/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.0.1/feather.min.js" 
+    			integrity="sha256-JOHphzcTEzaA1OQ/4qxDgg0ux1YpPFzA1OPzwafrWqs=" 
+    			crossorigin="anonymous">
+    	</script>
+    	<script
+  				src="https://code.jquery.com/jquery-2.2.4.min.js"
+  				integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  				crossorigin="anonymous">
+  		</script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
+
+<div class="navBar">
+	<div class="logoWrap"><a href="../index.html"><h1>Johnston Mfg Co.</h1></a></div>
+	<div class="navButtonWrap">
+		<a href="tel:559-638-2737"><i data-feather="phone" class="contactIcon"></i><span class="indent">(559) 638-2737</span></a>
+		<a href="mailto:johnstonmfg@gmail.com" target="_blank"><i data-feather="mail" class="contactIcon"></i></a>
+		<a href="https://maps.google.com/?q=Johnston Manufacturing Co, 19406 E Parlier Ave, Reedley, CA 93654" target="_blank"><i data-feather="map-pin" class="contactIcon"></i></a>
+	</div>
+</div>	
 
 	<div class="container">
 	<div class="row" id="search">
@@ -30,11 +48,12 @@
 
 <!--********************************styles*********************************-->
 <style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
 body {
 }
 .container{
-	margin-top: 10%;
+	margin-top: 80px;
 }
 #search-form{
 	position: relative;
@@ -93,11 +112,136 @@ body {
 	color: #000;
 	font-weight: 700;
 }
+.navBar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	margin-bottom: 20px;
+	background-color: #24292e;
+	z-index: 2;
+
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-ms-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.logoWrap{
+	position: relative;
+	float: left;
+	top: 50%;
+	margin-left: 15px;
+
+	transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  	-moz-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	-o-transform: translateY(-50%);
+}
+.logoWrap h1{
+	margin: 0;
+  	font-family: 'Yellowtail', cursive;
+  	font-size: 3.5vh;
+  	color: #C60000;
+  	text-align: center;
+
+  	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  	-webkit-text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  	-moz-text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  	-ms-text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  	-o-text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.logoWrap a{
+	text-decoration: none;
+	-webkit-text-decoration: none;
+	-moz-text-decoration: none;
+	-ms-text-decoration: none;
+	-o-text-decoration: none;
+}
+.navButtonWrap{
+	position: relative;
+	float: right;
+	top: 50%;
+
+	transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  	-moz-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	-o-transform: translateY(-50%);
+}
+.navButtonWrap a{
+	margin: 0 15px;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
+
+	text-decoration: none;
+	-webkit-text-decoration: none;
+	-moz-text-decoration: none;
+	-ms-text-decoration: none;
+	-o-text-decoration: none;
+}
+.navButtonWrap .indent{
+	margin-left: 10px;
+}
+.contactIcon{
+  	position: relative;
+  	color: #fff;
+  	vertical-align: middle;
+}
+
+@media only screen and (max-width: 599px) {
+ 	.navButtonWrap .indent{
+		display: none;
+	}
+
+}
+@media only screen and (min-width: 600px){
+  	.navButtonWrap .indent{
+		display: none;
+	}
+}
+@media only screen and (min-width: 900px) {
+ 	.navButtonWrap .indent{
+ 		margin-left: 10px;
+		display: initial;
+	}
+}
+@media only screen and (min-width: 1024px){
+	.navBar{
+		height: 70px;
+	}
+	.navButtonWrap .indent{
+		margin-left: 10px;
+		display: initial;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	.navBar{
+		height: 50px;
+	}
+}
+@media only screen and (min-width: 1800px) {
+	.navBar{
+		height: 60px;
+	}
+	.navButtonWrap .indent{
+		margin-left: 10px;
+		display: initial;
+	}
+}
 </style>
 
 
 <!--**********************************Javascript******************************-->
 <script type="text/javascript">
+var windowWidth = $(window).width();
+if (windowWidth >= 0 && windowWidth <= 599){
+	feather.replace({'height': 20, 'width': 20, 'stroke-width': 1.5});
+}else{
+	feather.replace({'height': 30, 'width': 30, 'stroke-width': 1.5});
+}
+
 	data = [
 	{	
 		"id": "145",
@@ -397,6 +541,7 @@ $("#search-form").submit(function(e) {
 	}else if(idQuery == "" && widthQuery == "" && lengthQuery ==""){
 		//if no input
 		$('.form-control').css('border', 'solid 1px red');
+		$(".product").show();
 	}else if(idQuery == "" && widthQuery == "" && lengthQuery !=""){
 		//if only length
 		$(".product").hide();
