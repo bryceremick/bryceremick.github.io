@@ -20,6 +20,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  -webkit-background-attachment: fixed;
+  -moz-background-attachment: fixed;
+  -ms-background-attachment: fixed;
+  -o-background-attachment: fixed;
 }
 
 .grid-container1 .left,
@@ -396,6 +400,7 @@
   -moz-border-radius: 0%;
   -ms-border-radius: 0%;
   -o-border-radius: 0%;
+  -webkit-appearance: none;
 }
 
 .grid-container4 .contact-body form input {
