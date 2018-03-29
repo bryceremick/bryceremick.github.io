@@ -477,6 +477,7 @@
     justify-content: center;
     flex-direction: column;
     background-position: -100px;
+    background-attachment: scroll;
   }
   .grid-container1 .left h1 {
     font-size: 12vh;
@@ -505,7 +506,6 @@
   .grid-container4 .contact-body form {
     width: 90%;
     padding: 20px 10px;
-    border-radius: 5px;
   }
 }
 /*# sourceMappingURL=screen.css.map */
