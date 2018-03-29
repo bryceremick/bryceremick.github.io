@@ -391,6 +391,11 @@
   width: 40%;
   height: auto;
   padding: 40px;
+  border-radius: 0%;
+  -webkit-border-radius: 0%;
+  -moz-border-radius: 0%;
+  -ms-border-radius: 0%;
+  -o-border-radius: 0%;
 }
 
 .grid-container4 .contact-body form input {
