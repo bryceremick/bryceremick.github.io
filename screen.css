@@ -428,6 +428,12 @@
   padding-left: 5px;
   border-left: 5px solid transparent;
   transition: border-left .3s;
+  border-radius: 0%;
+  -webkit-border-radius: 0%;
+  -moz-border-radius: 0%;
+  -ms-border-radius: 0%;
+  -o-border-radius: 0%;
+  -webkit-appearance: none;
 }
 
 .grid-container4 .contact-body .contact-textbox:focus,
