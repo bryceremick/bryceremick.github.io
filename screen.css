@@ -395,17 +395,17 @@
   width: 40%;
   height: auto;
   padding: 40px;
+}
+
+.grid-container4 .contact-body form input {
+  display: block;
+  font-family: 'Lato', sans-serif;
   border-radius: 0%;
   -webkit-border-radius: 0%;
   -moz-border-radius: 0%;
   -ms-border-radius: 0%;
   -o-border-radius: 0%;
   -webkit-appearance: none;
-}
-
-.grid-container4 .contact-body form input {
-  display: block;
-  font-family: 'Lato', sans-serif;
 }
 
 .grid-container4 .contact-body .contact-textbox,
