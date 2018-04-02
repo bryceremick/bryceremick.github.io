@@ -2,19 +2,12 @@ $(document).ready(function () {
 
 
 	var windowWidth = $(window).width();
-	if (windowWidth >= 0 && windowWidth <= 599) {
-		feather.replace({
-			'height': 25,
-			'width': 25,
-			'stroke-width': 1.5
-		});
-	} else {
-		feather.replace({
-			'height': 25,
-			'width': 25,
-			'stroke-width': 1.5
-		});
-	}
+
+	feather.replace({
+		'height': 25,
+		'width': 25,
+		'stroke-width': 1.5
+	});
 
 	$(".knowledge").click(function () {
 		$('html,body').animate({
@@ -111,7 +104,7 @@ $(document).ready(function () {
 		$(".bar-10 .graph-bar").css("width", "65%");
 		/*bootstrap*/
 		$(".bar-11 .graph-bar").css("width", "20%");
-		/*react*/
+		/*graph skillz*/
 		$(".bar-12 .graph-bar").css("width", "85%");
 	}
 
