@@ -332,7 +332,7 @@
 
 .grid-container3 .box:hover .content,
 .grid-container3 .box:active .content {
-  -webkit-transform: rotateX(180deg);
+  -webkit-transform: -webkit-rotateX(180deg);
   transform: rotateX(180deg);
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
