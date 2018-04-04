@@ -334,6 +334,7 @@
 .grid-container3 .box:active .content {
   -webkit-transform: -webkit-rotateX(180deg);
   transform: rotateX(180deg);
+  transform: -webkit-rotateX(180deg);
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
   -o-transition: transform 0.5s;
@@ -358,6 +359,11 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
   font-family: 'Lato', sans-serif;
 }
 
@@ -372,6 +378,8 @@
   background: #03446A;
   color: white;
   -webkit-transform: rotateX(180deg);
+  -webkit-transform: -webkit-rotateX(180deg);
+  transform: -webkit-rotateX(180deg);
   transform: rotateX(180deg);
 }
 
