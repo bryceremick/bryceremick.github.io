@@ -2,6 +2,10 @@ $(document).ready(function () {
 
 
 	var windowWidth = $(window).width();
+	var ua = window.navigator.userAgent;
+	var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+	var webkit = !!ua.match(/WebKit/i);
+	var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
 
 	feather.replace({
 		'height': 25,
@@ -29,6 +33,24 @@ $(document).ready(function () {
 	});
 	$(".graph-bar").each(function () {
 		$(this).css("border-right", "10px solid " + color_rand());
+	});
+
+
+	var rotated = false;
+	$('.box').hover(function () {
+		if (iOSSafari) {
+			if (!rotated) {
+				$(this).find(".content").css({
+					"transform": "rotateX(180deg)"
+				});
+				rotated = true;
+			} else {
+				$(this).find(".content").css({
+					"transform": "rotateX(0deg)"
+				});
+				rotated = false;
+			}
+		}
 	});
 
 	$(document).scroll(function (e) {
