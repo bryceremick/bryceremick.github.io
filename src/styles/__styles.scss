@@ -1,0 +1,27 @@
+@use "./_fonts";
+@use "./_mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color-primary: #1f2a4e;
+  --background-color-secondary: #0f1732;
+  --font-color-primary: #e2e8f0;
+  --font-color-secondary: #94a3b8;
+}
+
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  color: var(--font-color-primary);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+p {
+  color: var(--font-color-secondary);
+}
