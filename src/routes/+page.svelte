@@ -1,7 +1,12 @@
 <script lang="ts">
   import "../styles/__styles.scss";
   import Section from "../components/Section.svelte";
+  import IconButton from "../components/IconButton.svelte";
+  import FileDownload from "~icons/mdi/file-download";
+  import EyeOff from "~icons/mdi/eye-off";
+  import Eye from "~icons/mdi/eye";
 
+  let shouldShowDetails = true;
   const test = ["About", "About", "About", "About", "About", "About", "About"];
 </script>
 
@@ -22,6 +27,26 @@
         <p>
           I create full-stack software systems for mobile devices & the web.
         </p>
+        <div id="button-container">
+          <IconButton
+            text="Show {true ? 'Less' : 'More'} Details"
+            on:click={() => {
+              shouldShowDetails = !shouldShowDetails;
+            }}
+          >
+            {#if shouldShowDetails}
+              <EyeOff slot="iconLeft" />
+            {:else}
+              <Eye slot="iconLeft" />
+            {/if}
+          </IconButton>
+          <IconButton text="Download Resume">
+            <FileDownload slot="iconLeft" />
+          </IconButton>
+          <!-- <IconButton text="View Simple Website">
+            <FileAccount slot="iconLeft" />
+          </IconButton> -->
+        </div>
       </div>
     </div>
     <div id="right">
@@ -66,9 +91,11 @@
     #content {
       display: flex;
       flex-direction: row;
-      padding: 0px 6rem;
-      margin: 0px 8rem;
       min-height: 100vh;
+      max-width: 1440px;
+      padding: 0px 6rem;
+      margin: 0px auto;
+      gap: 1rem;
 
       #left,
       #right {
@@ -89,18 +116,18 @@
         width: 500px;
 
         #profile-img-wrap {
-          width: 116px;
-          height: 116px;
+          width: 96px;
+          height: 96px;
           display: flex;
           justify-content: center;
           align-items: center;
           border: 1px dashed var(--font-color-primary);
-          margin-bottom: 15px;
+          margin-bottom: 1rem;
 
           img {
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
           }
         }
@@ -108,13 +135,13 @@
           font-weight: 900;
           text-transform: uppercase;
           font-size: 48px;
-          margin: 5px auto;
+          margin: 0.5rem auto;
           letter-spacing: -1px;
         }
 
         h3 {
           font-weight: 500;
-          margin: 5px auto;
+          margin: 0.5rem auto;
           font-size: 24px;
           a {
             font-weight: 700;
@@ -125,7 +152,15 @@
 
         p {
           font-size: 20px;
-          margin: 10px auto;
+          margin: 0.5rem auto;
+        }
+
+        #button-container {
+          margin-top: 1rem;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 1rem;
         }
       }
 
@@ -134,6 +169,7 @@
         flex-direction: column;
         gap: 15px;
         margin-top: 45vh;
+        margin-bottom: 6rem;
         // :global(.content-section) {
         //   // border: 1px solid white;
         //   // margin-bottom: 25px;
