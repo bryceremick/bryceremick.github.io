@@ -2,11 +2,16 @@
   import "../styles/__styles.scss";
   import Section from "../components/Section.svelte";
   import IconButton from "../components/IconButton.svelte";
-  import FileDownload from "~icons/mdi/file-download";
-  import EyeOff from "~icons/mdi/eye-off";
-  import Eye from "~icons/mdi/eye";
+  import FileDownloadIcon from "~icons/mdi/file-download";
+  import EyeOffIcon from "~icons/mdi/eye-off";
+  import EyeIcon from "~icons/mdi/eye";
 
-  let shouldShowDetails = true;
+  import GithubIcon from "~icons/fa6-brands/github";
+  import LinkedInIcon from "~icons/fa6-brands/linkedin";
+
+  let isShowingDetails = true;
+  const toggleDetailsState = () => (isShowingDetails = !isShowingDetails);
+
   const test = ["About", "About", "About", "About", "About", "About", "About"];
 </script>
 
@@ -27,50 +32,59 @@
         <p>
           I create full-stack software systems for mobile devices & the web.
         </p>
-        <div id="button-container">
-          <IconButton
-            text="Show {true ? 'Less' : 'More'} Details"
-            on:click={() => {
-              shouldShowDetails = !shouldShowDetails;
-            }}
-          >
-            {#if shouldShowDetails}
-              <EyeOff slot="iconLeft" />
-            {:else}
-              <Eye slot="iconLeft" />
-            {/if}
-          </IconButton>
-          <IconButton text="Download Resume">
-            <FileDownload slot="iconLeft" />
-          </IconButton>
-          <!-- <IconButton text="View Simple Website">
-            <FileAccount slot="iconLeft" />
-          </IconButton> -->
+
+        <div
+          id="details-toggle-container"
+          class="hover-font-primary"
+          on:click={toggleDetailsState}
+          on:keydown={() => {}}
+        >
+          {#if isShowingDetails}
+            <EyeOffIcon class="font-color-secondary" />
+          {:else}
+            <EyeIcon class="font-color-secondary" />
+          {/if}
+          <span class="font-color-secondary">
+            Show {isShowingDetails ? "less" : "more"} details
+          </span>
         </div>
       </div>
     </div>
     <div id="right">
-      <div id="scroll-content">
-        {#each test as section}
-          <Section class="content-section" header={section}>
-            <p class="about-content">
-              Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-              nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-              tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-              feugiat lectus.
-            </p>
-            <p class="about-content">
-              Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-              nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-              tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-              feugiat lectus.
-            </p>
-          </Section>
-        {/each}
-      </div>
+      {#if isShowingDetails}
+        <div id="scroll-content">
+          {#each test as section}
+            <Section class="content-section" header={section}>
+              <p class="about-content">
+                Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
+                metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
+                interdum tellus elit sed risus. Maecenas eget condimentum velit,
+                sit amet feugiat lectus.
+              </p>
+              <p class="about-content">
+                Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
+                metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
+                interdum tellus elit sed risus. Maecenas eget condimentum velit,
+                sit amet feugiat lectus.
+              </p>
+            </Section>
+          {/each}
+        </div>
+      {/if}
     </div>
+  </div>
+  <div id="profiles-container">
+    <a class="a-reset" href="https://github.com/bryceremick" target="_blank"
+      ><GithubIcon class="font-color-secondary" />
+    </a>
+    <a
+      class="a-reset"
+      href="https://www.linkedin.com/in/bryce-remick-290921160/"
+      target="_blank"
+      ><LinkedInIcon class="font-color-secondary" />
+    </a>
   </div>
 </div>
 
@@ -95,7 +109,7 @@
       max-width: 1440px;
       padding: 0px 6rem;
       margin: 0px auto;
-      gap: 1rem;
+      gap: 2rem;
 
       #left,
       #right {
@@ -155,12 +169,18 @@
           margin: 0.5rem auto;
         }
 
-        #button-container {
-          margin-top: 1rem;
+        #details-toggle-container {
           display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          gap: 1rem;
+          gap: 10px;
+          margin-top: 2rem;
+          cursor: pointer;
+          user-select: none;
+
+          span {
+            font-size: 16px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+          }
         }
       }
 
@@ -176,9 +196,15 @@
         // }
       }
     }
-  }
 
-  .about-content {
-    margin: 10px 0px;
+    #profiles-container {
+      // border: 1px solid white;
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 </style>

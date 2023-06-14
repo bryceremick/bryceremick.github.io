@@ -12,6 +12,9 @@ export default defineConfig({
 				if (collection === 'mdi') {
 					props.width = '24px'
 					props.height = '24px'
+				} else if (collection === 'fa6-brands') {
+					props.width = '32px'
+					props.height = '32px'
 				}
 			}
 		})

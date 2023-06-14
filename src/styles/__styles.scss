@@ -13,6 +13,7 @@
   --selected-color-primary: #222f57;
   --selected-color-secondary: #304f7b;
   --font-family-primary: "Inter", Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
 html,
@@ -41,4 +42,17 @@ p {
   font-weight: 400;
   font-family: var(--font-family-primary);
   cursor: pointer;
+}
+
+.font-color-primary {
+  color: var(--font-color-primary);
+}
+.font-color-secondary {
+  color: var(--font-color-secondary);
+}
+
+.hover-font-primary {
+  &:hover > * {
+    color: var(--font-color-primary);
+  }
 }

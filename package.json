@@ -26,5 +26,8 @@
 		"unplugin-icons": "^0.16.3",
 		"vite": "^4.3.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@iconify-json/fa6-brands": "^1.1.11"
+	}
 }
