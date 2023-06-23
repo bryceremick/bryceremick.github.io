@@ -1,5 +1,4 @@
 @use "./_fonts";
-@use "./_mixins";
 
 * {
   box-sizing: border-box;
@@ -30,6 +29,12 @@ p {
   color: var(--font-color-secondary);
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button {
   height: 50px;
   padding: 0px;
@@ -55,4 +60,52 @@ p {
   &:hover > * {
     color: var(--font-color-primary);
   }
+}
+
+.text-norm {
+  font-size: 1rem;
+}
+
+.text-med {
+  font-size: 1.5rem;
+}
+
+.text-lg {
+  font-size: 2rem;
+}
+
+.text-xl {
+  font-size: 3rem;
+}
+
+.font-norm {
+  font-weight: 400;
+}
+
+.font-med {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+.color-primary {
+  color: var(--font-color-primary);
+}
+
+.color-secondary {
+  color: var(--font-color-secondary);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
 }

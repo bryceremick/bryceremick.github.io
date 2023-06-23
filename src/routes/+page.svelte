@@ -5,7 +5,6 @@
   import FileDownloadIcon from "~icons/mdi/file-download";
   import EyeOffIcon from "~icons/mdi/eye-off";
   import EyeIcon from "~icons/mdi/eye";
-
   import GithubIcon from "~icons/fa6-brands/github";
   import LinkedInIcon from "~icons/fa6-brands/linkedin";
 
@@ -19,17 +18,18 @@
   <div id="content">
     <div id="left">
       <div id="fixed-content-wrap">
-        <div id="profile-img-wrap">
+        <div id="profile-img-wrap" class="flex-center">
           <img src="/images/profile-min.jpg" alt="" />
         </div>
-        <h1>Bryce Remick</h1>
-        <h3>
+        <h1 class="text-lg font-black uppercase color-primary">Bryce Remick</h1>
+        <h3 class="text-md font-med color-primary">
           Software Engineer III <a
+            class="font-bold"
             href="https://www.keiser.com/"
             target="_blank">@KeiserCorp</a
           >
         </h3>
-        <p>
+        <p class="text-norm font-norm">
           I create full-stack software systems for mobile devices & the web.
         </p>
 
@@ -104,16 +104,30 @@
 
     #content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       min-height: 100vh;
-      max-width: 1440px;
-      padding: 0px 6rem;
-      margin: 0px auto;
-      gap: 2rem;
+      padding: 2rem 1rem;
+      gap: 1rem;
+
+      @include small-devices-and-up {
+        padding: 3rem 3rem;
+      }
+
+      @include medium-devices-and-up {
+      }
+
+      @include large-devices-and-up {
+        flex-direction: row;
+        margin: 0px auto;
+        max-width: 1440px;
+      }
 
       #left,
       #right {
-        width: 50%;
+        width: 100%;
+        @include large-devices-and-up {
+          width: 50%;
+        }
       }
 
       #left {
@@ -127,45 +141,56 @@
       }
 
       #left #fixed-content-wrap {
-        width: 500px;
+        width: 100%;
+        @include small-devices-and-up {
+          width: 500px;
+        }
 
         #profile-img-wrap {
-          width: 96px;
-          height: 96px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          width: 48px;
+          height: 48px;
           border: 1px dashed var(--font-color-primary);
-          margin-bottom: 1rem;
+          margin-bottom: 0.5rem;
+
+          @include small-devices-and-up {
+            width: 64px;
+            height: 64px;
+          }
+          @include medium-devices-and-up {
+            width: 96px;
+            height: 96px;
+          }
 
           img {
             display: block;
-            width: 80px;
-            height: 80px;
+            width: 38px;
+            height: 38px;
             object-fit: cover;
+
+            @include small-devices-and-up {
+              width: 54px;
+              height: 54px;
+            }
+            @include medium-devices-and-up {
+              width: 86px;
+              height: 86px;
+            }
           }
         }
+
         h1 {
-          font-weight: 900;
-          text-transform: uppercase;
-          font-size: 48px;
           margin: 0.5rem auto;
           letter-spacing: -1px;
         }
 
         h3 {
-          font-weight: 500;
           margin: 0.5rem auto;
-          font-size: 24px;
           a {
-            font-weight: 700;
             color: #b83047;
-            text-decoration: underline;
           }
         }
 
         p {
-          font-size: 20px;
           margin: 0.5rem auto;
         }
 
@@ -188,8 +213,13 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        margin-top: 45vh;
+        margin-top: 5rem;
         margin-bottom: 6rem;
+
+        @include large-devices-and-up {
+          margin-top: 45vh;
+        }
+
         // :global(.content-section) {
         //   // border: 1px solid white;
         //   // margin-bottom: 25px;
