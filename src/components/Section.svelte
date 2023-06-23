@@ -3,15 +3,22 @@
 </script>
 
 <section class={$$props.class}>
-  <h3>{header}</h3>
+  <header>
+    <h3 class="text-norm font-bold uppercase">{header}</h3>
+  </header>
   <slot />
 </section>
 
 <style lang="scss">
-  section h3 {
-    font-size: 24px;
-    font-weight: 500;
-    margin-top: 0px;
-    margin-bottom: 10px;
+  header {
+    position: sticky;
+    top: 0;
+    padding: 0.5rem 0;
+    backdrop-filter: blur(10px);
+    // width: 100vw;
+  }
+  h3 {
+    margin: 0;
+    letter-spacing: 1px;
   }
 </style>

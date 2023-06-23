@@ -35,6 +35,20 @@ p {
   align-items: center;
 }
 
+.flex-row-center-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .button {
   height: 50px;
   padding: 0px;
@@ -49,14 +63,7 @@ p {
   cursor: pointer;
 }
 
-.font-color-primary {
-  color: var(--font-color-primary);
-}
-.font-color-secondary {
-  color: var(--font-color-secondary);
-}
-
-.hover-font-primary {
+.hover-color-primary {
   &:hover > * {
     color: var(--font-color-primary);
   }
